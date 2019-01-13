@@ -1,10 +1,11 @@
 const express = require('express');
+const apiRoutes = require ("./routes/apiRoutes");
 //const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 3001;
-const apiRoutes = require("./routes/apiRoutes");
+const PORT = process.env.PORT || 3000;
 const path = require("path");
-
+//import {initClient, makeApiCall} from "./routes/apiRoutes");
+  
 // comment
 
 //app.use(express.json());
@@ -19,7 +20,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Use apiRoutes
-app.use("/api", apiRoutes);
+//app.use("/api", apiRoutes);
+//app.use(app.router);
+//routes.initialize(app);
 
 // Send every request to the React app
 // Define any API routes before this runs
@@ -30,6 +33,8 @@ app.get("*", function(req, res) {
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+//apiRoutes.initClient ();
 
 // app.get('/api/hello', (req, res) => {
 //   res.send({ express: 'Hello From Express' });

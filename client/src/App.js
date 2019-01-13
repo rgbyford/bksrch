@@ -27,7 +27,8 @@ class App extends Component {
   handleFormSubmit = event => {
     // When the form is submitted, prevent its default behavior, get books update the books state
     event.preventDefault();
-    API.getbooks(this.state.bookSearch)
+    console.log ("hFS");
+    API.getBooks(this.state.bookSearch)
       .then(res => this.setState({ books: res.data }))
       .catch(err => console.log(err));
   };
@@ -37,8 +38,6 @@ class App extends Component {
       <div>
 
       <PortfolioContainer />;
-   <button id = "signin-button" onclick = "handleSignInClick()" > Sign In </button>
-    <button id = "signout-button" onclick = "handleSignOutClick()" > Sign Out </button>
         <Nav />
         <Jumbotron />
         <Container>
